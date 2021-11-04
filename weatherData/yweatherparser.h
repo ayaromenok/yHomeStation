@@ -14,6 +14,7 @@ signals:
 
 private:
     void processLine(QString* line);
+    QString _currentWeatherS;
 };
 
 #endif // YWEATHERPARSER_H
