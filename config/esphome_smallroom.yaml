@@ -1,0 +1,126 @@
+esphome:
+  name: smallroom
+  platform: ESP32
+  board: esp32dev
+
+# Enable logging
+logger: 
+  level: DEBUG
+  
+web_server:
+  port: 80
+  
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "048f380c31a439f1af9d65a8fd550174"
+
+wifi:
+  ssid: "azanet"
+  password: "HelloWorld"
+  manual_ip:
+    static_ip: 192.168.1.222
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Smallroom Fallback Hotspot"
+    password: "n8bsupCxiX83"
+
+captive_portal:
+
+esp32_ble_tracker:
+sensor:
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:65:5A:6B"
+    temperature:
+      name: "Small room - Bed/Temp"
+    humidity:
+      name: "Small room - Bed:Humi"
+    battery_level:
+      name: "Small room - Bed/Level"
+#    battery_voltage:
+#      name: "Small room - Bed/Volt"
+
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:E7:AC:5D"
+    temperature:
+      name: "Small room - Loggia/Temp"
+    humidity:
+      name: "Small room - Loggia/Humi"
+    battery_level:
+      name: "Small room - Loggia/Level"
+#    battery_voltage:
+#      name: "Small room - Loggia/Volt"
+
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:60:C4:76"
+    temperature:
+      name: "Small room - Battery/Temp"
+    humidity:
+      name: "Small room - Battery/Humi"
+    battery_level:
+      name: "Small room - Battery/Level"
+#    battery_voltage:
+#      name: "Small room - Battery/Volt"
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:60:31:C4"
+    temperature:
+      name: "Big room - Battery/Temp"
+    humidity:
+      name: "Big room - Battery/Humi"
+    battery_level:
+#      name: "Big room - Battery/Level"
+#    battery_voltage:
+      name: "Big room - Battery/Voltage"
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:E7:0B:53"
+    temperature:
+      name: "Big room - Table/Temp"
+    humidity:
+      name: "Big room - Table/Humi"
+    battery_level:
+      name: "Big room - Table/Level"
+#    battery_voltage:
+#      name: "Big room - Table/Volt"
+
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:5F:C4:01"
+    temperature:
+      name: "Kitchen - Kitchen/Temp"
+    humidity:
+      name: "Kitchen - Kitchen/Humi"
+    battery_level:
+      name: "Kitchen - Kitchen/Level"
+#    battery_voltage:
+#      name: "Kitchen - Kitchen/Volt"
+  - platform: atc_mithermometer
+    mac_address: "A4:C1:38:31:9F:D6"
+    temperature:
+      name: "Kitchen - Loggia/Temp"
+    humidity:
+      name: "Kitchen - Loggia/Humi"
+    battery_level:
+      name: "Kitchen - Loggia/Level"
+#    battery_voltage:
+#      name: "Kitchen - Loggia/Volt"
+
+# Example configuration entry
+esp32_camera:
+  name: MyCam
+  external_clock:
+    pin: GPIO0
+    frequency: 20MHz
+  i2c_pins:
+    sda: GPIO26
+    scl: GPIO27
+  data_pins: [GPIO5, GPIO18, GPIO19, GPIO21, GPIO36, GPIO39, GPIO34, GPIO35]
+  vsync_pin: GPIO25
+  href_pin: GPIO23
+  pixel_clock_pin: GPIO22
+  power_down_pin: GPIO32
+  resolution: 320x240
+  jpeg_quality: 10
+  
