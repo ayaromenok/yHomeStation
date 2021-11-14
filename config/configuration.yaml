@@ -1,0 +1,52 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+sensor: !include sensors.yaml
+
+history:
+  exclude:
+    entities:
+     - sensor.sm_g950f_battery_level
+     - sensor.sm_g950f_battery_state
+     - sensor.sm_g950f_battery_temperature
+     - sensor.sm_g950f_battery_charge_type
+     - sensor.sm_g950f_charger_type
+     - binary_sensor.sm_g950f_is_charging
+     - person.az
+     - device_tracker.sm_g950f
+     - camera.mycam
+     - sensor.hg232f_wan_status
+     - binary_sensor.hg232f_wan_status
+     - weather.home_2
+     - binary_sensor.updater
+     - persistent_notification.config_entry_discovery
+     - sensor.big_room_battery_voltage_2
+     - sensor.big_room_battery_humi_2
+     - sensor.big_room_table_voltage_2
+  use_include_order: true
+  include:
+    entities:
+     - sun.sun
+     - sensor.outer_temp
+     - sensor.big_room_table_temp_2
+     - sensor.small_room_bed_temp_2
+     - sensor.kitchen_kitchen_temp_2
+     - sensor.small_room_loggia_temp_2
+     - sensor.kitchen_loggia_temp_2
+     - sensor.big_room_battery_temp_2
+     - sensor.small_room_battery_temp_2
+     - sensor.outer_wind
+     - sensor.outer_wind_dir
+     - sensor.outer_humidity
+     - sensor.outer_pressure
+
+

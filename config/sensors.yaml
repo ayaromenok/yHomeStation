@@ -1,0 +1,24 @@
+  - platform: template
+    sensors:
+      outer_temp:
+        friendly_name: "Outer Temp"
+        unit_of_measurement: '°C'
+        value_template: "{{ state_attr('weather.home', 'temperature') }}"
+      outer_wind:
+        friendly_name: "Outer Wind"
+        unit_of_measurement: 'km/h'
+        value_template: "{{ state_attr('weather.home', 'wind_speed') }}"
+      outer_wind_dir:
+        friendly_name: "Outer Wind direction"
+        unit_of_measurement: 'degree'
+        value_template: "{{ state_attr('weather.home', 'wind_bearing') }}"
+      outer_humidity:
+        friendly_name: "Outer Humidity"
+        unit_of_measurement: '%'
+        value_template: "{{ state_attr('weather.home', 'humidity') }}"
+      outer_pressure:
+        friendly_name: "Outer Pressure"
+        unit_of_measurement: 'mBar'
+        value_template: "{{ state_attr('weather.home', 'pressure') }}"
+
+
