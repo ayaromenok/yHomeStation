@@ -35,6 +35,7 @@ history:
   use_include_order: true
   include:
     entities:
+     - sensor.hg232f_external_ip
      - sun.sun
      - sensor.outer_temp
      - sensor.big_room_table_temp_2
