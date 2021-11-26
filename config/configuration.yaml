@@ -12,6 +12,15 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 sensor: !include sensors.yaml
 
+notify:
+  - name: filenotify
+    platform: file
+    filename: csvexport.txt
+#notify:
+  - name: battery_temp_log
+    platform: file
+    filename: battery_temp_log.txt
+
 history:
   exclude:
     entities:
