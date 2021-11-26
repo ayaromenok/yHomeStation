@@ -13,13 +13,18 @@ scene: !include scenes.yaml
 sensor: !include sensors.yaml
 
 notify:
-  - name: filenotify
+  - name: log_all
     platform: file
-    filename: csvexport.txt
-#notify:
-  - name: battery_temp_log
+    filename: log_all.txt
+  - name: log_battery_temp
     platform: file
-    filename: battery_temp_log.txt
+    filename: log_battery_temp.txt
+  - name: log_temp_10min
+    platform: file
+    filename: log_temp_10min.txt
+  - name: log_temp_1h
+    platform: file
+    filename: log_temp_1h.txt
 
 history:
   exclude:
