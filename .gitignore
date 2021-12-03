@@ -1,5 +1,6 @@
 data/tmp/
 build
+get_configs.sh
 # C++ objects and libs
 *.slo
 *.lo
